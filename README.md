@@ -31,7 +31,7 @@ Code works well under these settings(Maybe also works well for other settings):
 # Model weights
 * **current_best.h5**: current best model weights. Put it in the ./model-params
 
-* **features_dict.pkl**: all filkr8k image features extracted by Inception_v3. Put it in the ./datasets
+* **features_dict.pkl**: all filckr8k image features extracted by Inception_v3. Put it in the ./datasets
 
 * [Here to Download, Google Drive](https://drive.google.com/drive/folders/1ZRB5tLyt9N776kBNoYDLJubaxVp6M8f2?usp=sharing)
 
