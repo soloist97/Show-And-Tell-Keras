@@ -53,5 +53,3 @@ METEOR: 0.202<br/>SPICE: 0.144</br>
 # TensorBoardCaption
 * A keras callback function to monitor small amount of images's current caption during training by tensorboard
 <img src="./pics/tensorboard.png" width="80%" height="80%">
-
-# Have fun and enjoy yourself~
