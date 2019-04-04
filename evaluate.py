@@ -2,7 +2,7 @@
 File to define inference and BLEU evaluation method of NIC, 
 including how to generate captions by given image use greedy or beam search, 
 
-based by the paper:
+based on the paper:
 
 https://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Vinyals_Show_and_Tell_2015_CVPR_paper.pdf
 
