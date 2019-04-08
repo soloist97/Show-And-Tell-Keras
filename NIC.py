@@ -18,7 +18,6 @@ text_emb_lstm: Define the decoding part of model used in beam search
 import numpy as np
 from keras import backend as K
 from keras import regularizers
-from keras.initializers import RandomNormal
 from keras.layers import (LSTM, BatchNormalization, Dense, Dropout, Embedding,
                           Input, Lambda, TimeDistributed)
 from keras.models import Model
@@ -31,7 +30,6 @@ def model(vocab_size, max_len, reg):
     inputs1 = Input(shape=(2048,))
     X_img = Dropout(0.5)(inputs1)
     X_img = Dense(unit_size, use_bias = False, 
-                        kernel_initializer=RandomNormal(),
                         kernel_regularizer=regularizers.l2(reg),
                         name = 'dense_img')(inputs1)
     X_img = BatchNormalization(name='batch_normalization_img')(X_img)
@@ -53,7 +51,6 @@ def model(vocab_size, max_len, reg):
 
     A, _, _ = LSTMLayer(X_text, initial_state=[a, c])
     output = TimeDistributed(Dense(vocab_size, activation='softmax',
-                                     kernel_initializer = RandomNormal(),
                                      kernel_regularizer = regularizers.l2(reg), 
                                      bias_regularizer = regularizers.l2(reg)), name = 'time_distributed_softmax')(A)
 
