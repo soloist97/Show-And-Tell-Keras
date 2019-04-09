@@ -42,7 +42,7 @@ def training(dirs_dict, lr, decay, reg, batch_size, epochs, max_len, initial_epo
         NIC_model.summary()
         plot_model(NIC_model, to_file='./model.png',show_shapes=True)
     else:
-        NIC_model.load_weights(model_dir, by_name = True, skip_mismatch=True)
+        NIC_model.load_weights(previous_model, by_name = True, skip_mismatch=True)
 
     # Define checkpoint callback
     file_path = params_dir + '/model-ep{epoch:03d}-loss{loss:.4f}-val_loss{val_loss:.4f}.h5'
