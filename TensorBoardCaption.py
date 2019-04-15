@@ -12,7 +12,7 @@ from keras.preprocessing.text import Tokenizer
 from PIL import Image, ImageDraw, ImageFont
 
 from preprocessing.image import extract_features, load_images_as_arrays
-from NIC import text_emb_lstm, image_dense_lstm
+from NIC import text_emb_lstm, image_dense_lstm, unit_size
 from evaluate import beam_search
 
 class TensorBoardCaption(Callback):
@@ -59,7 +59,7 @@ class TensorBoardCaption(Callback):
         summary_str = []
         for id, image_array in self.images.items():
             fidx = self.image_features['ids'].index(id)
-            a0, c0 = NIC_image_dense_lstm.predict([self.image_features['features'][fidx, :].reshape(1, -1), np.zeros([1, 512]), np.zeros([1, 512])])
+            a0, c0 = NIC_image_dense_lstm.predict([self.image_features['features'][fidx, :].reshape(1, -1), np.zeros([1, unit_size]), np.zeros([1, unit_size])])
             res = beam_search(NIC_text_emb_lstm, a0.reshape(1,-1), c0.reshape(1,-1), self.tokenizer, self.beam_width, self.max_len, self.alpha)
             best_idx = np.argmax(res['scores'])
             caption = self.tokenizer.sequences_to_texts([res['routes'][best_idx]])[0]
