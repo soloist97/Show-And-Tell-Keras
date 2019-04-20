@@ -31,7 +31,7 @@ def model(vocab_size, max_len, reg):
     X_img = Dropout(0.5)(inputs1)
     X_img = Dense(unit_size, use_bias = False, 
                         kernel_regularizer=regularizers.l2(reg),
-                        name = 'dense_img')(inputs1)
+                        name = 'dense_img')(X_img)
     X_img = BatchNormalization(name='batch_normalization_img')(X_img)
     X_img = Lambda(lambda x : K.expand_dims(x, axis=1))(X_img)
 
