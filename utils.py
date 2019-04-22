@@ -3,8 +3,6 @@ File to define data generator for training
 '''
 
 import numpy as np
-from keras.layers import RepeatVector
-from keras.preprocessing.text import Tokenizer
 from keras.utils import to_categorical
 
 from preprocessing.image import load_features
